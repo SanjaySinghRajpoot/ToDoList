@@ -4,10 +4,10 @@ import { Footer } from "./components/Footer";
 import { Todoitem } from "./components/Todoitem";
 import { AddTodo } from "./components/AddTodo";
 import { Todo } from "./components/Todo";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
-  let initTodo;
+  let initTodo;  // to fetch the data 
 
   if (localStorage.getItem("todos")) {
     initTodo = [];
@@ -17,7 +17,7 @@ function App() {
 
   const onDelete = (todo) => {
     setTodo(
-      todos.filter((e) => {
+      todo.filter((e) => {
         return e !== todo;
       })
     );
@@ -44,6 +44,10 @@ function App() {
   };
 
   const [todos, setTodo] = useState([initTodo]);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos])
 
   return (
     <>

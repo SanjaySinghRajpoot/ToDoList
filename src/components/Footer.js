@@ -15,7 +15,7 @@ export const Footer = () => {
         className="bg-dark text-light mx-200 text-center bottom py-3"
         style={footerSyle}
       >
-        All rights reserved 2021
+        All rights reserved 2021 
       </div>
     </>
   );
